@@ -1,0 +1,37 @@
+---
+title: "Assignment 2 : MA20268"
+execute:
+  kernel: ai-ml-spr26
+editor: 
+    render-on-save: true
+format: 
+    html:
+        code-fold: true
+        theme: 
+            dark: darkly
+            light: cosmo
+    pdf:
+        documentclass: article
+        pdf-engine: pdflatex
+        geometry: 
+            - top=20mm
+            - bottom=20mm
+            - left=20mm
+            - right=20mm
+        include-in-header:
+            - text: |
+                \usepackage{fvextra}
+                \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+                \usepackage{parskip} 
+                \setlength{\parindent}{0pt}
+                \setlength{\parskip}{6pt plus 2pt minus 1pt}
+---
+
+
+ _Disclaimer: This solution to assignments is made (typed & thought upon) completely by hand and with full understanding of the content by me_ <br/>
+\begin{flushright}
+\textit{-- Shubham Krishan, 24MA10063}
+\end{flushright}
+<br/>
+
+## Q1: 
