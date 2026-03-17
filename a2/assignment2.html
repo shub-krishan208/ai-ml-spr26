@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
+<script src="assignment2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assignment2_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="assignment2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="assignment2_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="assignment2_files/libs/quarto-html/popper.min.js"></script>
+<script src="assignment2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assignment2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assignment2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assignment2_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="assignment2_files/libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="assignment2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assignment2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assignment2_files/libs/bootstrap/bootstrap-a74871fe4945b66d259aafc266475145.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="assignment2_files/libs/bootstrap/bootstrap-dark-534f9e6eb4fde8fa3495dc6c45b1673d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -269,7 +281,7 @@ window.Quarto = {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 
@@ -307,27 +319,27 @@ window.Quarto = {
 </div>
 <section id="initializing-u-v-in-mathbbr200" class="level2">
 <h2 class="anchored" data-anchor-id="initializing-u-v-in-mathbbr200">Initializing <span class="math inline">\(u, v \in \mathbb{R}^{200}\)</span></h2>
-<div id="4902c203" class="cell" data-execution_count="1">
+<div id="e7102268" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">200</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Now, the target variable <span class="math inline">\(y \in \mathbb{R}^{200}\)</span> as defined:</p>
-<div id="8495723a" class="cell" data-execution_count="2">
+<div id="d975978f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.where(u<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> v<span class="op">**</span><span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.where(u<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> v<span class="op">**</span><span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Given basis functions: <span class="math inline">\(g_0(u_i, v_i) = 1\)</span>, <span class="math inline">\(g_1(u_i, v_i) = u_i\)</span>, <span class="math inline">\(g_2(u_i, v_i) = v_i\)</span>, <span class="math inline">\(g_3(u_i, v_i) = {u_i}^{2}\)</span>, <span class="math inline">\(g_4(u_i, v_i) = {v_i}^{2}\)</span>, <span class="math inline">\(g_5(u_i, v_i) = v_iu_i\)</span></p>
-<div id="60191d76" class="cell" data-execution_count="3">
+<div id="b33f1d67" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g1(ui, vi):</span>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g1(ui, vi):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g2(ui, vi):</span>
@@ -352,20 +364,20 @@ window.Quarto = {
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: g4,</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: g5,</span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>: g6</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
 <section id="defining-matrix-c-in-mathbbr200-times-6" class="level2">
 <h2 class="anchored" data-anchor-id="defining-matrix-c-in-mathbbr200-times-6">Defining matrix <span class="math inline">\(C \in \mathbb{R}^{200 \times 6}\)</span></h2>
-<div id="722e526a" class="cell" data-execution_count="4">
+<div id="8000b56c" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.zeros((<span class="dv">200</span>, <span class="dv">6</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.zeros((<span class="dv">200</span>, <span class="dv">6</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">200</span>):</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        c[i][j] <span class="op">=</span> basis_func.get(j, <span class="kw">lambda</span> u,v: <span class="va">None</span>)(u[i], v[i])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        c[i][j] <span class="op">=</span> basis_func.get(j, <span class="kw">lambda</span> u,v: <span class="va">None</span>)(u[i], v[i])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -379,33 +391,33 @@ window.Quarto = {
 <p>to get <span class="math inline">\(\tilde{w}\)</span> we solve the least squares problem <span class="math inline">\(\min_{w} \lVert \mathbf{y}-C\mathbf{w} \rVert^2\)</span></p>
 <!-- We can solve the normal equation $\mathbb{C}^{T}C\mathbf{w} = \mathbb{C}^{T}y$ for getting the ideal weights $\tilde{w}$ on the randomly generated C matrix.  -->
 <!-- So, we have $\tilde{w} = (\mathbb{C}^{T}C)^{-1}\mathbb{C}^{T}y$ -->
-<div id="533742bf" class="cell" data-execution_count="5">
+<div id="4a4a74d4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.linalg.lstsq(c, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.linalg.lstsq(c, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Weights: "</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, val <span class="kw">in</span> <span class="bu">enumerate</span>(w):</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i<span class="op">+</span><span class="dv">1</span>, val)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i<span class="op">+</span><span class="dv">1</span>, val)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Weights: 
-1 0.6571775713414533
-2 0.008330018732458236
-3 0.0071149920389850345
-4 0.013781305656071193
-5 0.01514373241757523
-6 0.0010308821374353763</code></pre>
+1 0.6115464303957688
+2 -0.002053826554452646
+3 -0.005096010086688094
+4 0.015962190580619356
+5 0.01612651154988965
+6 0.0001516756029384435</code></pre>
 </div>
 </div>
 </section>
 <section id="final-views-on-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="final-views-on-the-problem">Final views on the problem</h2>
 <p>The target set and basis functions used here trained the model <span class="math inline">\(\tilde{y}\)</span> to predict whether a point (u, v) lies outside the circle of radius ‘2’ or not (defined by the target condition: <span class="math inline">\(u^2 + v^2 &gt; 4\)</span>). So, now we should be able to predict this using the approximated weights <span class="math inline">\(\tilde{w}\)</span>.</p>
-<div id="9383c145" class="cell" data-execution_count="6">
+<div id="53d0ffea" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pred(u, v, w):</span>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pred(u, v, w):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> np.array([<span class="dv">1</span>,u,v,u<span class="op">**</span><span class="dv">2</span>,v<span class="op">**</span><span class="dv">2</span>,u<span class="op">*</span>v])</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    y_hat <span class="op">=</span> features <span class="op">@</span> w <span class="co"># dot product of given surface with w</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y_hat</span>
@@ -432,23 +444,23 @@ window.Quarto = {
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"..."</span>)</span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"points outside the circle in training data: </span><span class="sc">{</span>threshold<span class="sc">}</span><span class="ss">%"</span>) <span class="co"># shows skewness in the random training dataset</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"accuracy: </span><span class="sc">{</span>(correct<span class="op">/</span>TEST_SIZE)<span class="op">*</span><span class="dv">100</span><span class="sc">}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"accuracy: </span><span class="sc">{</span>(correct<span class="op">/</span>TEST_SIZE)<span class="op">*</span><span class="dv">100</span><span class="sc">}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>TESTING on random uniform test with size:  100
-(1.23, -0.69) =&gt; model: 0 truth: 0
-(2.68, 3.81) =&gt; model: 1 truth: 1
-(0.01, 0.07) =&gt; model: 0 truth: 0
-(0.93, -3.47) =&gt; model: 0 truth: 1
-(3.00, -1.34) =&gt; model: 0 truth: 1
-(2.98, 2.52) =&gt; model: 1 truth: 1
-(4.26, 3.72) =&gt; model: 1 truth: 1
-(0.94, 4.97) =&gt; model: 1 truth: 1
-(1.91, -2.26) =&gt; model: 0 truth: 1
-(-0.94, 1.75) =&gt; model: 0 truth: 0
+(3.94, 2.16) =&gt; model: 1 truth: 1
+(-0.31, -0.12) =&gt; model: 0 truth: 0
+(1.08, -1.81) =&gt; model: 0 truth: 1
+(-0.88, 3.96) =&gt; model: 0 truth: 1
+(3.81, 3.97) =&gt; model: 1 truth: 1
+(-1.70, -1.25) =&gt; model: 0 truth: 1
+(-3.53, 0.42) =&gt; model: 0 truth: 1
+(-4.99, 2.26) =&gt; model: 1 truth: 1
+(1.06, 4.12) =&gt; model: 0 truth: 1
+(-2.25, 0.56) =&gt; model: 0 truth: 1
 ...
-points outside the circle in training data: 0.895%
-accuracy: 59.0%</code></pre>
+points outside the circle in training data: 0.89%
+accuracy: 67.0%</code></pre>
 </div>
 </div>
 <p><em>Note: Since the dataset is not balanced (i.e., the proportion of class 1 labels is significantly higher than that of class 0), a threshold of 0.5 is not appropriate. As the model is obtained via least-squares regression and produces continuous outputs, a decision threshold is required for classification. In this case, we use the empirical mean of the training labels as the threshold to account for the class imbalance.</em></p>
@@ -457,6 +469,147 @@ accuracy: 59.0%</code></pre>
 <section id="question-2" class="level1">
 <h1>Question 2:</h1>
 <p><img src="images/q2.1.png" class="img-fluid" alt="Q2.0"> <img src="images/q2.2.png" class="img-fluid" alt="Q2.1"></p>
+<section id="setting-up-mnist-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-mnist-dataset">Setting up MNIST dataset</h2>
+<blockquote class="blockquote">
+<p>using keras datasets for clean mnist import to avoid messy mnist_reader util files (alternative way was to use zalando’s mnist_reader util)</p>
+</blockquote>
+<div id="baf96cc7" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.datasets <span class="im">import</span> fashion_mnist</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>(x_train, y_train), (x_test, y_test) <span class="op">=</span> fashion_mnist.load_data()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>To reduce dimensionality and remove irrelevant border pixels, we crop image from <span class="math inline">\(28 \times 28\)</span> to <span class="math inline">\(20 \times 20\)</span>:</p>
+<div id="cd50a138" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train[:, <span class="dv">4</span>:<span class="dv">24</span>, <span class="dv">4</span>:<span class="dv">24</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test[:, <span class="dv">4</span>:<span class="dv">24</span>, <span class="dv">4</span>:<span class="dv">24</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Each image is flattened into a feature vector:</p>
+<div id="13bdae9c" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.reshape(<span class="bu">len</span>(x_train), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test.reshape(<span class="bu">len</span>(x_test), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># normalize pixel values to [0,1] to improve numerical stability of least squares</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train <span class="op">/</span> <span class="fl">255.0</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test <span class="op">/</span> <span class="fl">255.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="setting-up-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-model">Setting up the Model</h2>
+<p>First, we define a helper function to <em>extract only the relevant classes (0 and k) and relabel them</em>:</p>
+<div id="a6ab9442" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper function to filter out x, y sets into two label classes 0 and k</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_binary(x ,y, k):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> (y<span class="op">==</span><span class="dv">0</span>) <span class="op">|</span> (y<span class="op">==</span>k)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    x_bin <span class="op">=</span> x[mask]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    y_bin <span class="op">=</span> y[mask]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    y_bin <span class="op">=</span> np.where(y_bin <span class="op">==</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x_bin, y_bin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="model-least-square-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="model-least-square-classifier">Model: Least Square Classifier</h2>
+<p>We model the prediction as: <span class="math inline">\(\tilde{y}=\mathbf{w}^T\mathbf{x} + b\)</span> , where <span class="math inline">\(b\)</span> is the bias term.</p>
+<p>To incorporate the bias term, we augment the feature matrix with a column of ones. The opimal weight <span class="math inline">\(\tilde{w}\)</span> are obtained by solving the equation:</p>
+<p><span class="math inline">\(\min_{\mathbf{w}}|X\mathbf{w}-y|^2\)</span></p>
+<p>Using the Moore-Penrose pseudoinverse (built-in in numpy):</p>
+<div id="e000a88c" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_ls(X, y):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> np.c_[np.ones(X.shape[<span class="dv">0</span>]), X]  <span class="co"># add bias</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> np.linalg.pinv(X) <span class="op">@</span> y <span class="co"># best fit line using pseudoinverse</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="prediciton-rule" class="level3">
+<h3 class="anchored" data-anchor-id="prediciton-rule">Prediciton Rule:</h3>
+<p>Predictions are made using the sign of the model output:</p>
+<div id="56616e32" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict(X, w):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> np.c_[np.ones(X.shape[<span class="dv">0</span>]), X]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.where(X <span class="op">@</span> w <span class="op">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="evaluation-metric" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation-metric">Evaluation Metric:</h3>
+<p>We use the misclassification error defined as: <span class="math inline">\(\text{Error} = \frac{1}{N}\sum_{i=1}^{N}\mathbb{1}(y_i\neq\hat{y}_i)\)</span></p>
+<div id="898d8894" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> misclassification_error(y_true, y_pred):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(y_true <span class="op">!=</span> y_pred)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="running-experiments" class="level3">
+<h3 class="anchored" data-anchor-id="running-experiments">Running Experiments</h3>
+<p>Training and evaluating the model for each <span class="math inline">\(k \in {1,\dots, 9}\)</span>:</p>
+<div id="c24ee24c" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> {}</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    X_train_k, y_train_k <span class="op">=</span> get_binary(x_train, y_train, k)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> train_ls(X_train_k, y_train_k)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    X_test_k, y_test_k <span class="op">=</span> get_binary(x_test, y_test, k)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> predict(X_test_k, w)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> misclassification_error(y_test_k, y_pred)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    results[k] <span class="op">=</span> error</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"0 vs </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> =&gt; error: </span><span class="sc">{</span>error<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 vs 1 =&gt; error: 0.0205
+0 vs 2 =&gt; error: 0.0515
+0 vs 3 =&gt; error: 0.0730
+0 vs 4 =&gt; error: 0.0300
+0 vs 5 =&gt; error: 0.0050
+0 vs 6 =&gt; error: 0.1750
+0 vs 7 =&gt; error: 0.0005
+0 vs 8 =&gt; error: 0.0400
+0 vs 9 =&gt; error: 0.0025</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="interepretation-and-inference" class="level2">
+<h2 class="anchored" data-anchor-id="interepretation-and-inference">Interepretation and Inference</h2>
+<p>This experiment highlights how well a linear model trained via least squares can separate different classes in a high-dimensional image space.</p>
+<p>Key observations:</p>
+<ul>
+<li>Since the model is linear, performance depends on how linearly separable the classes are.</li>
+<li>Some class pairs (e.g., visually distinct clothing types) are expected to yield lower error.</li>
+<li>Others with similar shapes or textures may result in higher misclassification.</li>
+</ul>
+<p>Despite its simplicity, this approach provides a useful baseline before moving to more expressive models like logistic regression or neural networks.</p>
+</section>
+</section>
+<section id="question-3" class="level1">
+<h1>Question 3:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/q3.png" class="img-fluid figure-img"></p>
+<figcaption>Q3</figcaption>
+</figure>
+</div>
 </section>
 <section id="new-things-learned" class="level1">
 <h1>New Things Learned:</h1>

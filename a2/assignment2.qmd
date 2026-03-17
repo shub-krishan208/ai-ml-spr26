@@ -167,6 +167,117 @@ _Note: Since the dataset is not balanced (i.e., the proportion of class 1 labels
 ![Q2.0](images/q2.1.png)
 ![Q2.1](images/q2.2.png)
 
+## Setting up MNIST dataset
+
+> using keras datasets for clean mnist import to avoid messy mnist_reader util files (alternative way was to use zalando's mnist_reader util)
+```{python}
+from tensorflow.keras.datasets import fashion_mnist
+(x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
+```
+
+To reduce dimensionality and remove irrelevant border pixels, we crop image from $28 \times 28$ to $20 \times 20$:
+```{python}
+x_train = x_train[:, 4:24, 4:24]
+x_test = x_test[:, 4:24, 4:24]
+```
+
+Each image is flattened into a feature vector:
+```{python}
+x_train = x_train.reshape(len(x_train), -1)
+x_test = x_test.reshape(len(x_test), -1)
+
+# normalize pixel values to [0,1] to improve numerical stability of least squares
+x_train = x_train / 255.0 
+x_test = x_test / 255.0
+```
+
+## Setting up the Model
+
+First, we define a helper function to _extract only the relevant classes (0 and k) and relabel them_:
+```{python}
+# Helper function to filter out x, y sets into two label classes 0 and k
+def get_binary(x ,y, k):
+    mask = (y==0) | (y==k)
+    x_bin = x[mask]
+    y_bin = y[mask]
+
+    y_bin = np.where(y_bin == 0, 1, -1);
+
+    return x_bin, y_bin
+
+```
+
+
+## Model: Least Square Classifier
+
+We model the prediction as: $\tilde{y}=\mathbf{w}^T\mathbf{x} + b$ , where $b$ is the bias term.
+
+To incorporate the bias term, we augment the feature matrix with a column of ones. The opimal weight $\tilde{w}$ are obtained by solving the equation:
+
+$\min_{\mathbf{w}}|X\mathbf{w}-y|^2$
+
+Using the Moore-Penrose pseudoinverse (built-in in numpy):
+```{python}
+def train_ls(X, y):
+    X = np.c_[np.ones(X.shape[0]), X]  # add bias
+    w = np.linalg.pinv(X) @ y # best fit line using pseudoinverse
+    return w
+```
+
+### Prediciton Rule:
+
+Predictions are made using the sign of the model output:
+```{python}
+def predict(X, w):
+    X = np.c_[np.ones(X.shape[0]), X]
+    return np.where(X @ w > 0, 1, -1)
+```
+
+### Evaluation Metric:
+
+We use the misclassification error defined as:
+$\text{Error} = \frac{1}{N}\sum_{i=1}^{N}\mathbb{1}(y_i\neq\hat{y}_i)$
+```{python}
+def misclassification_error(y_true, y_pred):
+    return np.mean(y_true != y_pred)
+```
+
+### Running Experiments
+
+Training and evaluating the model for each $k \in {1,\dots, 9}$:
+```{python}
+results = {}
+
+for k in range(1, 10):
+    X_train_k, y_train_k = get_binary(x_train, y_train, k)
+    w = train_ls(X_train_k, y_train_k)
+    X_test_k, y_test_k = get_binary(x_test, y_test, k)
+    y_pred = predict(X_test_k, w)
+    error = misclassification_error(y_test_k, y_pred)
+    
+    results[k] = error
+    print(f"0 vs {k} => error: {error:.4f}")
+```
+
+
+## Interepretation and Inference
+
+This experiment highlights how well a linear model trained via least squares can separate different classes in a high-dimensional image space.
+
+Key observations:
+
+- Since the model is linear, performance depends on how linearly separable the classes are.
+- Some class pairs (e.g., visually distinct clothing types) are expected to yield lower error.
+- Others with similar shapes or textures may result in higher misclassification.
+
+Despite its simplicity, this approach provides a useful baseline before moving to more expressive models like logistic regression or neural networks.
+
+# Question 3:
+
+![Q3](images/q3.png)
+
+
+
 # New Things Learned:
 
 Python code:
