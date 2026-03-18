@@ -276,6 +276,81 @@ Despite its simplicity, this approach provides a useful baseline before moving t
 
 ![Q3](images/q3.png)
 
+## Process
+
+Our goal is to find MSE for the target variable $y\in\mathbb{R}^{100}$ given by:
+
+$y_i = \begin{cases}+1 & \text{if} u_iv_i>0.5\\ -1 & \text{otherwise}\end{cases}$
+
+i.e. a prediction model to show if a point (u,v) $\in$ {set of points outside hyprbola $\text{uv} = 0.5$ for $u\in\mathbf{u}, v\in\mathbf{v}$}
+
+The dataset for training is _random points sampled independently from the uniform distribution_ of points in a square of side length 5.
+
+### Defining the Training Dataset
+
+```{python}
+Q3_SAMPLE_SIZE = 100
+u = np.random.uniform(-5, 5, Q3_SAMPLE_SIZE)
+v = np.random.uniform(-5, 5, Q3_SAMPLE_SIZE)
+```
+
+and the target variable $\mathbf{y}$ is:
+
+```{python}
+y = np.where(u*v > 0.5, 1, -1)
+```
+
+### Building the $\mathbb{C}$ matrix with given basis functions;
+
+```{python}
+c = np.zeros((Q3_SAMPLE_SIZE, 6))
+
+# using the basis function dictionary defined in Q1
+for i in range(Q3_SAMPLE_SIZE):
+    for j in range(6):
+        c[i][j] = basis_func.get(j, lambda u,v: None)(u[i], v[i])
+```
+
+### Solving for the optimal weights
+
+The optimal weights $\mathbf{w}$ such that $\mathbb{C}\mathbf{w} \approx \mathbf{y}$ is calculated as:
+
+```{python}
+w = np.linalg.lstsq(c, y, rcond=None)[0]
+
+print("weights: ")
+for i, val in enumerate(w):
+    print(f"{i} => {val}")
+```
+
+### Calculating MSE
+
+Here, we have $\hat{y}=\mathbb{C}\mathbf{w}$ and MSE is given by:
+
+$\text{MSE } = \sum_{i=1}^{100}(y_i - \hat{y}_i)^2$
+
+```{python}
+y_hat = c @ w
+mse = np.sum((y-y_hat)**2)
+
+print(f"mse = {mse:.5f}, mean: {np.mean((y-y_hat)**2)}")
+```
+
+
+# Question 4:
+
+![Q4](./images/q4.png)
+
+
+
+## Inference and Observations
+
+* The model approximates a nonlinear boundary $(uv = 0.5)$ using linear least squares with basis functions.
+* Performance depends on whether the basis includes interaction terms (e.g., $\mathbf{uv}$).
+* A lower MSE indicates better approximation of the nonlinear relationship.
+* This is effectively a regression-based classification, where predictions are thresholded.
+
+
 
 
 # New Things Learned:
@@ -293,3 +368,7 @@ Inference of problems:
 - understood the differences in applications between regression and classification models
 - got more familiar with terminologies like class labels
 - understood the use of model and basis function in the QUERY => PREDICTION flow.
+
+> Question 2:
+
+- Kuchh to seekha hu lekin likhna bhul gya .... ^_^'
