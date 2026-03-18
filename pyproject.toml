@@ -11,5 +11,6 @@ dependencies = [
     "networkx>=3.6.1",
     "pydot>=4.0.1",
     "pygraphviz>=1.14",
+    "seaborn>=0.13.2",
     "tensorflow>=2.21.0",
 ]
