@@ -269,7 +269,7 @@ window.Quarto = {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 
@@ -307,7 +307,7 @@ window.Quarto = {
 </div>
 <section id="initializing-u-v-in-mathbbr200" class="level2">
 <h2 class="anchored" data-anchor-id="initializing-u-v-in-mathbbr200">Initializing <span class="math inline">\(u, v \in \mathbb{R}^{200}\)</span></h2>
-<div id="c95ac796" class="cell" data-execution_count="1">
+<div id="6b2b925f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -319,14 +319,14 @@ window.Quarto = {
 </details>
 </div>
 <p>Now, the target variable <span class="math inline">\(y \in \mathbb{R}^{200}\)</span> as defined:</p>
-<div id="9f255efc" class="cell" data-execution_count="2">
+<div id="b3777700" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.where(u<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> v<span class="op">**</span><span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Given basis functions: <span class="math inline">\(g_0(u_i, v_i) = 1\)</span>, <span class="math inline">\(g_1(u_i, v_i) = u_i\)</span>, <span class="math inline">\(g_2(u_i, v_i) = v_i\)</span>, <span class="math inline">\(g_3(u_i, v_i) = {u_i}^{2}\)</span>, <span class="math inline">\(g_4(u_i, v_i) = {v_i}^{2}\)</span>, <span class="math inline">\(g_5(u_i, v_i) = v_iu_i\)</span></p>
-<div id="d456c5a4" class="cell" data-execution_count="3">
+<div id="22790d42" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g1(ui, vi):</span>
@@ -360,7 +360,7 @@ window.Quarto = {
 </section>
 <section id="defining-matrix-c-in-mathbbr200-times-6" class="level2">
 <h2 class="anchored" data-anchor-id="defining-matrix-c-in-mathbbr200-times-6">Defining matrix <span class="math inline">\(C \in \mathbb{R}^{200 \times 6}\)</span></h2>
-<div id="5b310d21" class="cell" data-execution_count="4">
+<div id="886a45be" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.zeros((<span class="dv">200</span>, <span class="dv">6</span>))</span>
@@ -381,7 +381,7 @@ window.Quarto = {
 <p>to get <span class="math inline">\(\tilde{w}\)</span> we solve the least squares problem <span class="math inline">\(\min_{w} \lVert \mathbf{y}-C\mathbf{w} \rVert^2\)</span></p>
 <!-- We can solve the normal equation $\mathbb{C}^{T}C\mathbf{w} = \mathbb{C}^{T}y$ for getting the ideal weights $\tilde{w}$ on the randomly generated C matrix.  -->
 <!-- So, we have $\tilde{w} = (\mathbb{C}^{T}C)^{-1}\mathbb{C}^{T}y$ -->
-<div id="ad16974a" class="cell" data-execution_count="5">
+<div id="91d3e6bf" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.linalg.lstsq(c, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
@@ -392,12 +392,12 @@ window.Quarto = {
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Weights: 
-1 0.6429446842534564
-2 0.0037975218163987415
-3 0.0019781750368363772
-4 0.013062162453815253
-5 0.01408295352317404
-6 0.0007356804664208357</code></pre>
+1 0.6199614387300605
+2 0.0024680541662089038
+3 0.004102737986111977
+4 0.015919871965899404
+5 0.016266772015338115
+6 -0.0016180627560186827</code></pre>
 </div>
 </div>
 </section>
@@ -406,7 +406,7 @@ window.Quarto = {
 <p>The target set and basis functions used here trained the model <span class="math inline">\(\tilde{y}\)</span> to predict whether a point (u, v) lies outside the circle of radius ‘2’ or not (defined by the target condition: <span class="math inline">\(u^2 + v^2 &gt; 4\)</span>). So, now we should be able to predict this using the approximated weights <span class="math inline">\(\tilde{w}\)</span>.</p>
 <section id="visualization-true-boundary-vs.-predicted-model" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-true-boundary-vs.-predicted-model">Visualization: True Boundary vs.&nbsp;Predicted model</h3>
-<div id="9fa1a949" class="cell" data-execution_count="6">
+<div id="de2be9d4" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># helper function for predictions</span></span>
@@ -464,7 +464,7 @@ window.Quarto = {
 </section>
 <section id="testing" class="level3">
 <h3 class="anchored" data-anchor-id="testing">Testing</h3>
-<div id="140a3837" class="cell" data-execution_count="7">
+<div id="1db0ee7e" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>TEST_SIZE <span class="op">=</span> <span class="dv">100</span></span>
@@ -492,19 +492,19 @@ window.Quarto = {
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>TESTING on random uniform test with size:  100
-(1.07, -2.94) =&gt; model: 0 truth: 1
-(0.65, -2.27) =&gt; model: 0 truth: 1
-(-2.75, -0.11) =&gt; model: 0 truth: 1
-(-2.55, 2.30) =&gt; model: 0 truth: 1
-(2.66, -4.78) =&gt; model: 1 truth: 1
-(-1.10, -0.71) =&gt; model: 0 truth: 0
-(-1.34, 1.17) =&gt; model: 0 truth: 0
-(2.85, -2.69) =&gt; model: 0 truth: 1
-(-1.74, -4.71) =&gt; model: 1 truth: 1
-(2.95, 0.64) =&gt; model: 0 truth: 1
+(4.88, 1.23) =&gt; model: 1 truth: 1
+(-5.00, 3.68) =&gt; model: 1 truth: 1
+(-4.79, 2.57) =&gt; model: 1 truth: 1
+(3.09, -0.85) =&gt; model: 0 truth: 1
+(3.56, -2.94) =&gt; model: 1 truth: 1
+(-4.19, 1.20) =&gt; model: 1 truth: 1
+(-4.16, 4.89) =&gt; model: 1 truth: 1
+(2.98, -3.81) =&gt; model: 1 truth: 1
+(2.18, 4.58) =&gt; model: 1 truth: 1
+(-3.84, 2.98) =&gt; model: 1 truth: 1
 ...
-points outside the circle in training data: 0.895%
-accuracy: 47.0%</code></pre>
+points outside the circle in training data: 0.885%
+accuracy: 57.99999999999999%</code></pre>
 </div>
 </div>
 <p><em>Note: Since the dataset is not balanced (i.e., the proportion of class 1 labels is significantly higher than that of class 0), a threshold of 0.5 is not appropriate. As the model is obtained via least-squares regression and produces continuous outputs, a decision threshold is required for classification. In this case, we use the empirical mean of the training labels as the threshold to account for the class imbalance.</em></p>
@@ -519,7 +519,7 @@ accuracy: 47.0%</code></pre>
 <blockquote class="blockquote">
 <p>using keras datasets for clean mnist import to avoid messy mnist_reader util files (alternative way was to use zalando’s mnist_reader util)</p>
 </blockquote>
-<div id="d13c8f01" class="cell" data-execution_count="8">
+<div id="a5eee648" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.datasets <span class="im">import</span> fashion_mnist</span>
@@ -527,7 +527,7 @@ accuracy: 47.0%</code></pre>
 </details>
 </div>
 <p>To reduce dimensionality and remove irrelevant border pixels, we crop image from <span class="math inline">\(28 \times 28\)</span> to <span class="math inline">\(20 \times 20\)</span>:</p>
-<div id="930b641a" class="cell" data-execution_count="9">
+<div id="9d79593b" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train[:, <span class="dv">4</span>:<span class="dv">24</span>, <span class="dv">4</span>:<span class="dv">24</span>]</span>
@@ -535,7 +535,7 @@ accuracy: 47.0%</code></pre>
 </details>
 </div>
 <p>Each image is flattened into a feature vector:</p>
-<div id="2ea77525" class="cell" data-execution_count="10">
+<div id="01eeae71" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.reshape(<span class="bu">len</span>(x_train), <span class="op">-</span><span class="dv">1</span>)</span>
@@ -550,7 +550,7 @@ accuracy: 47.0%</code></pre>
 <section id="setting-up-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-model">Setting up the Model</h2>
 <p>First, we define a helper function to <em>extract only the relevant classes (0 and k) and relabel them</em>:</p>
-<div id="e48c3132" class="cell" data-execution_count="11">
+<div id="0ef62822" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper function to filter out x, y sets into two label classes 0 and k</span></span>
@@ -571,7 +571,7 @@ accuracy: 47.0%</code></pre>
 <p>To incorporate the bias term, we augment the feature matrix with a column of ones. The opimal weight <span class="math inline">\(\tilde{w}\)</span> are obtained by solving the equation:</p>
 <p><span class="math inline">\(\min_{\mathbf{w}}|X\mathbf{w}-y|^2\)</span></p>
 <p>Using the Moore-Penrose pseudoinverse (built-in in numpy):</p>
-<div id="0faa87cc" class="cell" data-execution_count="12">
+<div id="92039877" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_ls(X, y):</span>
@@ -583,7 +583,7 @@ accuracy: 47.0%</code></pre>
 <section id="prediciton-rule" class="level3">
 <h3 class="anchored" data-anchor-id="prediciton-rule">Prediciton Rule:</h3>
 <p>Predictions are made using the sign of the model output:</p>
-<div id="0582952e" class="cell" data-execution_count="13">
+<div id="61c74123" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict(X, w):</span>
@@ -595,7 +595,7 @@ accuracy: 47.0%</code></pre>
 <section id="evaluation-metric" class="level3">
 <h3 class="anchored" data-anchor-id="evaluation-metric">Evaluation Metric:</h3>
 <p>We use the misclassification error defined as: <span class="math inline">\(\text{Error} = \frac{1}{N}\sum_{i=1}^{N}\mathbb{1}(y_i\neq\hat{y}_i)\)</span></p>
-<div id="d89fd1f7" class="cell" data-execution_count="14">
+<div id="8de04537" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> misclassification_error(y_true, y_pred):</span>
@@ -606,7 +606,7 @@ accuracy: 47.0%</code></pre>
 <section id="running-experiments" class="level3">
 <h3 class="anchored" data-anchor-id="running-experiments">Running Experiments</h3>
 <p>Training and evaluating the model for each <span class="math inline">\(k \in {1,\dots, 9}\)</span>:</p>
-<div id="f9949988" class="cell" data-execution_count="15">
+<div id="064effe3" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> {}</span>
@@ -639,29 +639,26 @@ accuracy: 47.0%</code></pre>
 <h2 class="anchored" data-anchor-id="interepretation-and-inference">Interepretation and Inference</h2>
 <section id="visualization" class="level3">
 <h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
-<div id="007c94c1" class="cell" data-execution_count="16">
+<div id="45c0e773" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># convert results to lists</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ks <span class="op">=</span> <span class="bu">list</span>(results.keys())</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> <span class="bu">list</span>(results.values())</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert results to lists</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ks <span class="op">=</span> <span class="bu">list</span>(results.keys())</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> <span class="bu">list</span>(results.values())</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># bar plot</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>ks, y<span class="op">=</span>errors)</span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># bar plot</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>ks, y<span class="op">=</span>errors)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># optional: overlay line for trend</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.plot(ks, errors, marker<span class="op">=</span><span class="st">'o'</span>)</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># optional: overlay line for trend</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plt.plot(ks, errors, marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Class k (0 vs k)"</span>)</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Misclassification Error"</span>)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Least Squares Classifier Performance on Fashion-MNIST"</span>)</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Class k (0 vs k)"</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Misclassification Error"</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Least Squares Classifier Performance on Fashion-MNIST"</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -698,7 +695,7 @@ accuracy: 47.0%</code></pre>
 <p>The dataset for training is <em>random points sampled independently from the uniform distribution</em> of points in a square of side length 5.</p>
 <section id="defining-the-training-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="defining-the-training-dataset">Defining the Training Dataset</h3>
-<div id="6ffa8e85" class="cell" data-execution_count="17">
+<div id="5dea9d09" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Q3_SAMPLE_SIZE <span class="op">=</span> <span class="dv">100</span></span>
@@ -707,7 +704,7 @@ accuracy: 47.0%</code></pre>
 </details>
 </div>
 <p>and the target variable <span class="math inline">\(\mathbf{y}\)</span> is:</p>
-<div id="5bfa0e99" class="cell" data-execution_count="18">
+<div id="c77b05b6" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.where(u<span class="op">*</span>v <span class="op">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -716,7 +713,7 @@ accuracy: 47.0%</code></pre>
 </section>
 <section id="building-the-mathbbc-matrix-with-given-basis-functions" class="level3">
 <h3 class="anchored" data-anchor-id="building-the-mathbbc-matrix-with-given-basis-functions">Building the <span class="math inline">\(\mathbb{C}\)</span> matrix with given basis functions;</h3>
-<div id="c9d1f0ff" class="cell" data-execution_count="19">
+<div id="86c636d3" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.zeros((Q3_SAMPLE_SIZE, <span class="dv">6</span>))</span>
@@ -731,7 +728,7 @@ accuracy: 47.0%</code></pre>
 <section id="solving-for-the-optimal-weights" class="level3">
 <h3 class="anchored" data-anchor-id="solving-for-the-optimal-weights">Solving for the optimal weights</h3>
 <p>The optimal weights <span class="math inline">\(\mathbf{w}\)</span> such that <span class="math inline">\(\mathbb{C}\mathbf{w} \approx \mathbf{y}\)</span> is calculated as:</p>
-<div id="3c950cb7" class="cell" data-execution_count="20">
+<div id="690cf8d0" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> np.linalg.lstsq(c, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
@@ -742,12 +739,12 @@ accuracy: 47.0%</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>weights: 
-0 =&gt; -0.2992157021020952
-1 =&gt; -0.005832426840622195
-2 =&gt; 0.0482441057820224
-3 =&gt; 0.014218350862144446
-4 =&gt; 0.01660960613356546
-5 =&gt; 0.1011873228133018</code></pre>
+0 =&gt; -0.25300737167081183
+1 =&gt; 0.013476694028611059
+2 =&gt; -0.0021723792532299525
+3 =&gt; 0.007162978747497874
+4 =&gt; 0.019099776954562598
+5 =&gt; 0.09534853006313482</code></pre>
 </div>
 </div>
 </section>
@@ -755,7 +752,7 @@ accuracy: 47.0%</code></pre>
 <h3 class="anchored" data-anchor-id="calculating-mse">Calculating MSE</h3>
 <p>Here, we have <span class="math inline">\(\hat{y}=\mathbb{C}\mathbf{w}\)</span> and MSE is given by:</p>
 <p><span class="math inline">\(\text{MSE } = \sum_{i=1}^{100}(y_i - \hat{y}_i)^2\)</span></p>
-<div id="fce2ae54" class="cell" data-execution_count="21">
+<div id="8a3ccec5" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>y_hat <span class="op">=</span> c <span class="op">@</span> w</span>
@@ -764,7 +761,7 @@ accuracy: 47.0%</code></pre>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mse = </span><span class="sc">{</span>mse<span class="sc">:.5f}</span><span class="ss">, mean: </span><span class="sc">{</span>np<span class="sc">.</span>mean((y<span class="op">-</span>y_hat)<span class="op">**</span><span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>mse = 43.20386, mean: 0.43203857125452755</code></pre>
+<pre><code>mse = 43.19849, mean: 0.4319848778993481</code></pre>
 </div>
 </div>
 </section>
@@ -790,7 +787,7 @@ accuracy: 47.0%</code></pre>
 <section id="setting-up" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up">Setting up</h2>
 <p>Making the dataset:</p>
-<div id="703f1da0" class="cell" data-execution_count="22">
+<div id="093dc2e4" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">100</span>)</span>
@@ -818,15 +815,15 @@ accuracy: 47.0%</code></pre>
 <span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mse2: </span><span class="sc">{</span>mse2<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>mse: 0.46579980424295114
-mse2: 0.01129147071066961</code></pre>
+<pre><code>mse: 0.40909853403650515
+mse2: 0.014683971000561688</code></pre>
 </div>
 </div>
 <section id="visualization-truth-vs.-predictions" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-truth-vs.-predictions">Visualization: Truth vs.&nbsp;Predictions</h3>
 <p>For Ground truth: taking evenly spread numbers for getting the actual function</p>
 <p>Predictions: using the order 6 and 8 models to plot separate graphs.</p>
-<div id="89e272f6" class="cell" data-execution_count="23">
+<div id="6cddcadd" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>r_plot <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">100</span>)</span>
@@ -862,9 +859,130 @@ mse2: 0.01129147071066961</code></pre>
 </section>
 </section>
 </section>
+<section id="question-5" class="level1">
+<h1>Question 5:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/q5.png" class="img-fluid figure-img"></p>
+<figcaption>Q5</figcaption>
+</figure>
+</div>
+<section id="setting-up-mnist" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-mnist">Setting up MNIST</h2>
+<p>Setting up and finding the result:</p>
+<div id="8c8db16c" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.datasets <span class="im">import</span> mnist</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>(x_train, y_train), (x_test, y_test) <span class="op">=</span> mnist.load_data()</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># reducing dimensions</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test[:, <span class="dv">5</span>:<span class="dv">23</span>, <span class="dv">5</span>:<span class="dv">23</span>]</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train[:, <span class="dv">5</span>:<span class="dv">23</span>, <span class="dv">5</span>:<span class="dv">23</span>]</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># flattening</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.reshape(<span class="bu">len</span>(x_train), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test.reshape(<span class="bu">len</span>(x_test), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co"># standardization</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"samples: </span><span class="sc">{</span>x_train<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, features: </span><span class="sc">{</span>x_train<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># print(x_train[0])</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> x_train.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co"># print("mean: ", mean)</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co"># sqsum = np.zeroes(x_train.shape[1])</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co"># variance = np.zeros(x_train.shape[1])</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="co"># for i in range(x_train.shape[0]):</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">#    variance += (x_train[i] - mean)**2</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># variance /= x_train.shape[0]</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="co"># print("varaince: ", variance.shape)</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>std_deviation <span class="op">=</span> x_train.std(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co"># print("std: ", std_deviation)</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="co"># finally, </span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> (x_train <span class="op">-</span> mean) <span class="op">/</span> std_deviation</span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="co"># print("standardized: ", x_train[0])</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="co"># print(x_train.mean(axis=0))   # should be ~0</span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="co"># print(x_train.std(axis=0))    # should be ~1</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper function to filter out x, y sets into two label classes 0 and k</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_binary(x ,y, k):</span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> (y<span class="op">==</span><span class="dv">0</span>) <span class="op">|</span> (y<span class="op">==</span>k)</span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>    x_bin <span class="op">=</span> x[mask]</span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>    y_bin <span class="op">=</span> y[mask]</span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>    y_bin <span class="op">=</span> np.where(y_bin <span class="op">==</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x_bin, y_bin</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_ls(x, y):</span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.c_[np.ones(x.shape[<span class="dv">0</span>]), x]</span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.linalg.pinv(x) <span class="op">@</span> y</span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict(x, w):</span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.c_[np.ones(x.shape[<span class="dv">0</span>]), x]</span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.where(x<span class="op">@</span>w <span class="op">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> misclassification_error2(y_true, y_pred):</span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(y_true <span class="op">!=</span> y_pred)</span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a>    x_train_k, y_train_k <span class="op">=</span> get_binary(x_train, y_train, k)</span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>    x_test_k, y_test_k <span class="op">=</span> get_binary(x_test, y_test, k)</span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> train_ls(x_train_k, y_train_k)</span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> predict(x_test_k, w)</span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(y_pred)</span></span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> misclassification_error2(y_test_k, y_pred)</span>
+<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a>    results[k] <span class="op">=</span> error</span>
+<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a>meanout <span class="op">=</span> np.array(<span class="bu">list</span>(results.values()))</span>
+<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a>meanout <span class="op">=</span> meanout.mean()</span>
+<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a><span class="co"># print(results)</span></span>
+<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean misclassification error:  </span><span class="sc">{</span>meanout<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a><span class="co"># visualization</span></span>
+<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a>ks <span class="op">=</span> <span class="bu">list</span>(results.keys())</span>
+<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> <span class="bu">list</span>(results.values())</span>
+<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>ks, y<span class="op">=</span>errors, color<span class="op">=</span><span class="st">'skyblue'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a><span class="co">## trend plot</span></span>
+<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a>plt.plot(ks, errors, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Class k (0 vs. k)"</span>)</span>
+<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Misclassification Error"</span>)</span>
+<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Misclassification Plot"</span>)</span>
+<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="co"># print("weights: ", w)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>samples: 60000, features: 324
+Mean misclassification error:  0.010</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment2_files/figure-html/cell-25-output-2.png" width="606" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="new-things-learned" class="level1">
 <h1>New Things Learned:</h1>
-<p><span class="citation" data-cites="TODO">@TODO</span>: Q1 visual inference explanation and views update krlo</p>
+<p><span class="citation" data-cites="TODO">@TODO</span>: Q1 visual inference explanation and views update krlo <span class="citation" data-cites="TODO">@TODO</span>: Q4 context and explanation likhna hai (code done)</p>
 <p>Python code: <br></p>
 <ul>
 <li><code>np.linalg.lstsq(A, b, rcond=None)</code> =&gt; solves the matrix linear equation directly: <span class="math inline">\(A\mathbf{x} = b\)</span></li>

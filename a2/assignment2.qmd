@@ -312,9 +312,6 @@ for k in range(1, 10):
 ### Visualization
 
 ```{python}
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 # convert results to lists
 ks = list(results.keys())
 errors = list(results.values())
@@ -482,8 +479,116 @@ plt.show()
 ```
 
 
+
+
+# Question 5:
+
+![Q5](./images/q5.png)
+
+## Setting up MNIST
+
+Setting up and finding the result:
+```{python}
+from tensorflow.keras.datasets import mnist
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+
+# reducing dimensions
+x_test = x_test[:, 5:23, 5:23]
+x_train = x_train[:, 5:23, 5:23]
+
+# flattening
+
+x_train = x_train.reshape(len(x_train), -1)
+x_test = x_test.reshape(len(x_test), -1)
+
+# standardization
+print(f"samples: {x_train.shape[0]}, features: {x_train.shape[1]}")
+# print(x_train[0])
+mean = x_train.mean(axis=0)
+# print("mean: ", mean)
+# sqsum = np.zeroes(x_train.shape[1])
+# variance = np.zeros(x_train.shape[1])
+# for i in range(x_train.shape[0]):
+#    variance += (x_train[i] - mean)**2
+
+# variance /= x_train.shape[0]
+
+# print("varaince: ", variance.shape)
+
+std_deviation = x_train.std(axis=0)
+
+# print("std: ", std_deviation)
+
+# finally, 
+x_train = (x_train - mean) / std_deviation
+# print("standardized: ", x_train[0])
+# print(x_train.mean(axis=0))   # should be ~0
+# print(x_train.std(axis=0))    # should be ~1
+
+# Helper function to filter out x, y sets into two label classes 0 and k
+def get_binary(x ,y, k):
+    mask = (y==0) | (y==k)
+    x_bin = x[mask]
+    y_bin = y[mask]
+
+    y_bin = np.where(y_bin == 0, 1, -1);
+
+    return x_bin, y_bin
+
+def train_ls(x, y):
+    x = np.c_[np.ones(x.shape[0]), x]
+    return np.linalg.pinv(x) @ y
+
+def predict(x, w):
+    x = np.c_[np.ones(x.shape[0]), x]
+    return np.where(x@w > 0, 1, -1)
+
+def misclassification_error2(y_true, y_pred):
+    return np.mean(y_true != y_pred)
+for k in range(1, 10):
+    x_train_k, y_train_k = get_binary(x_train, y_train, k)
+    x_test_k, y_test_k = get_binary(x_test, y_test, k)
+    w = train_ls(x_train_k, y_train_k)
+    y_pred = predict(x_test_k, w)
+    # print(y_pred)
+    error = misclassification_error2(y_test_k, y_pred)
+    results[k] = error
+
+meanout = np.array(list(results.values()))
+meanout = meanout.mean()
+
+# print(results)
+print(f"Mean misclassification error:  {meanout:.3f}")
+
+# visualization
+ks = list(results.keys())
+errors = list(results.values())
+
+plt.figure()
+
+sns.barplot(x=ks, y=errors, color='skyblue', alpha=0.6)
+
+## trend plot
+plt.plot(ks, errors, marker='o')
+
+
+plt.xlabel("Class k (0 vs. k)")
+plt.ylabel("Misclassification Error")
+plt.title("Misclassification Plot")
+
+plt.show()
+
+
+# print("weights: ", w)
+
+    
+
+```
+
 # New Things Learned:
 @TODO: Q1 visual inference explanation and views update krlo
+@TODO: Q4 context and explanation likhna hai (code done)
 
 Python code:
 <br/>
